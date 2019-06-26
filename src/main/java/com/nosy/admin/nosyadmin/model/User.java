@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -24,7 +25,7 @@ public class User {
 
   @JsonManagedReference
   @OneToMany(mappedBy = "user", orphanRemoval = true, cascade = CascadeType.ALL)
-  private List<EmailCollection> emailCollections;
+  private List<EmailCollection> emailCollections = new ArrayList<>();
 
   public String getFirstName() {
     return firstName;
